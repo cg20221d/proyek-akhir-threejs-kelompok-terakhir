@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<style>
-			body {
-				margin: 0;
-			}
-		</style>
-		<title>Document</title>
-	</head>
-	<body>
-		<script src="three.js"></script>
-		<script>
-			// Our Javascript will go here.
-			const scene = new THREE.Scene();
-			const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="three.js"></script>
+    <script>
+      // Our Javascript will go here.
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-			const renderer = new THREE.WebGLRenderer();
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			document.body.appendChild(renderer.domElement);
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
 
-			const geometry = new THREE.BoxGeometry(1, 1, 1);
-			const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-			const cube = new THREE.Mesh(geometry, material);
-			scene.add(cube);
+      const texture = new THREE.TextureLoader().load("../img/2k_earth_nightmap.jpg");
+      const geometry = new THREE.SphereGeometry(2, 32, 16);
+      const material = new THREE.MeshBasicMaterial({ map: texture });
+      const cube = new THREE.Mesh(geometry, material);
+      cube.position.z = -5;
+      scene.add(cube);
 
-			camera.position.z = 5;
+      const texture2 = new THREE.TextureLoader().load("../img/2k_mars.jpg");
+      const geometry2 = new THREE.SphereGeometry(2, 32, 16);
+      const material2 = new THREE.MeshBasicMaterial({ map: texture2 });
+      const cube2 = new THREE.Mesh(geometry2, material2);
+      cube2.position.x = -4;
+      cube2.position.y = 0;
+      cube2.position.z = -4;
 
-			function animate() {
-				requestAnimationFrame(animate);
+      scene.add(cube2);
 
-				cube.rotation.x += 0.01;
-				cube.rotation.y += 0.01;
+      camera.position.z = 5;
 
-				renderer.render(scene, camera);
-			}
+      function animate() {
+        requestAnimationFrame(animate);
 
-			animate();
-		</script>
-	</body>
+        cube.rotation.y += 0.01;
+        cube2.rotation.y += 0.01;
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    </script>
+  </body>
 </html>
