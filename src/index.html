@@ -26,6 +26,7 @@
       // Import
       import * as THREE from "three";
       import { OrbitControls } from "https://unpkg.com/three@0.146/examples/jsm/controls/OrbitControls.js";
+      import { FlyControls } from "https://unpkg.com/three@0.146/examples/jsm/controls/FlyControls.js";
 
       // Solar System Information
       // Periode Rotasi - Satuan KM/s
@@ -60,6 +61,8 @@
       const marsRadius = 3.3895;
       const jupiterRadius = 69.911;
       const saturnRadius = 58.232;
+      const innerRadius = 80;
+      const outerRadius = 136;
       const uranusRadius = 25.362;
       const neptuneRadius = 24.622;
 
@@ -94,7 +97,7 @@
       ]);
 
       const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.set(0, 0, 40);
+      camera.position.set(-60, 30, 50);
 
       const orbit = new OrbitControls(camera, renderer.domElement);
       orbit.update();
@@ -109,7 +112,7 @@
       const sun = new THREE.Mesh(sunGeo, sunMat);
       scene.add(sun);
 
-      const sunPointLight = new THREE.PointLight(0xffffff, 2, 300);
+      const sunPointLight = new THREE.PointLight(0xffffff, 2, 2000);
       scene.add(sunPointLight);
 
       const mercuryGeo = new THREE.SphereGeometry(mercuryRadius * 10 * radiusScale, 35, 35);
@@ -150,7 +153,7 @@
 
       const jupiterGeo = new THREE.SphereGeometry(jupiterRadius * 10 * radiusScale, 35, 35);
       const jupiterMat = new THREE.MeshStandardMaterial();
-      jupiterMat.map = textureLoader.load("asset/texture/2k_jupiter.jpg");
+      jupiterMat.map = textureLoader.load("assets/texture/2k_jupiter.jpg");
       const jupiter = new THREE.Mesh(jupiterGeo, jupiterMat);
       const jupiterObj = new THREE.Object3D();
       jupiterObj.add(jupiter);
@@ -159,16 +162,25 @@
 
       const saturnGeo = new THREE.SphereGeometry(saturnRadius * 10 * radiusScale, 35, 35);
       const saturnMat = new THREE.MeshStandardMaterial();
-      saturnMat.map = textureLoader.load("asset/texture/2k_saturn.jpg");
+      saturnMat.map = textureLoader.load("assets/texture/2k_saturn.jpg");
       const saturn = new THREE.Mesh(saturnGeo, saturnMat);
       const saturnObj = new THREE.Object3D();
       saturnObj.add(saturn);
       scene.add(saturnObj);
       saturn.position.x += saturnDistance * distanceScale;
+      const ringGeo = new THREE.RingBufferGeometry(innerRadius * 10 * radiusScale, outerRadius * 10 * radiusScale, 35);
+      const ringMat = new THREE.MeshBasicMaterial();
+      ringMat.map = textureLoader.load("assets/texture/2k_saturn_ring_alpha.png");
+      ringMat.side = THREE.DoubleSide;
+      ringMat.transparent = true;
+      const ring = new THREE.Mesh(ringGeo, ringMat);
+      saturnObj.add(ring);
+      ring.position.x += saturnDistance * distanceScale;
+      ring.rotation.x += -0.5 * Math.PI;
 
       const uranusGeo = new THREE.SphereGeometry(uranusRadius * 10 * radiusScale, 35, 35);
       const uranusMat = new THREE.MeshStandardMaterial();
-      uranusMat.map = textureLoader.load("asset/texture/2k_uranus.jpg");
+      uranusMat.map = textureLoader.load("assets/texture/2k_uranus.jpg");
       const uranus = new THREE.Mesh(uranusGeo, uranusMat);
       const uranusObj = new THREE.Object3D();
       uranusObj.add(uranus);
@@ -177,7 +189,7 @@
 
       const neptuneGeo = new THREE.SphereGeometry(neptuneRadius * 10 * radiusScale, 35, 35);
       const neptuneMat = new THREE.MeshStandardMaterial();
-      neptuneMat.map = textureLoader.load("asset/texture/2k_neptune.jpg");
+      neptuneMat.map = textureLoader.load("assets/texture/2k_neptune.jpg");
       const neptune = new THREE.Mesh(neptuneGeo, neptuneMat);
       const neptuneObj = new THREE.Object3D();
       neptuneObj.add(neptune);
