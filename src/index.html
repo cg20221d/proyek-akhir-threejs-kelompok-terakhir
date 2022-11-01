@@ -109,7 +109,7 @@
       const sun = new THREE.Mesh(sunGeo, sunMat);
       scene.add(sun);
 
-      const sunPointLight = new THREE.PointLight(0xffffff, 2, 300);
+      const sunPointLight = new THREE.PointLight(0xffffff, 2, 1500);
       scene.add(sunPointLight);
 
       const mercuryGeo = new THREE.SphereGeometry(mercuryRadius * 10 * radiusScale, 35, 35);
@@ -150,7 +150,7 @@
 
       const jupiterGeo = new THREE.SphereGeometry(jupiterRadius * 10 * radiusScale, 35, 35);
       const jupiterMat = new THREE.MeshStandardMaterial();
-      jupiterMat.map = textureLoader.load("asset/texture/2k_jupiter.jpg");
+      jupiterMat.map = textureLoader.load("assets/texture/2k_jupiter.jpg");
       const jupiter = new THREE.Mesh(jupiterGeo, jupiterMat);
       const jupiterObj = new THREE.Object3D();
       jupiterObj.add(jupiter);
@@ -159,16 +159,29 @@
 
       const saturnGeo = new THREE.SphereGeometry(saturnRadius * 10 * radiusScale, 35, 35);
       const saturnMat = new THREE.MeshStandardMaterial();
-      saturnMat.map = textureLoader.load("asset/texture/2k_saturn.jpg");
+      saturnMat.map = textureLoader.load("assets/texture/2k_saturn.jpg");
       const saturn = new THREE.Mesh(saturnGeo, saturnMat);
       const saturnObj = new THREE.Object3D();
       saturnObj.add(saturn);
       scene.add(saturnObj);
       saturn.position.x += saturnDistance * distanceScale;
 
+      const saturnRingGeo = new THREE.RingGeometry(1.5 * saturnRadius * 10 * radiusScale, 
+                                                   2 * saturnRadius * 10 * radiusScale, 
+                                                   35); // ukuran belum sesuai
+      const saturnRingMat = new THREE.MeshBasicMaterial();
+      saturnRingMat.map = textureLoader.load("assets/texture/2k_saturn_ring_alpha.png");
+      saturnRingMat.side = THREE.DoubleSide;
+      const saturnRing = new THREE.Mesh(saturnRingGeo, saturnRingMat);
+      const saturnRingObj = new THREE.Object3D();
+      saturnRingObj.add(saturnRing);
+      scene.add(saturnRingObj);
+      saturnRing.position.x += saturnDistance * distanceScale;
+      saturnRing.rotation.x = -0.5 * Math.PI;
+
       const uranusGeo = new THREE.SphereGeometry(uranusRadius * 10 * radiusScale, 35, 35);
       const uranusMat = new THREE.MeshStandardMaterial();
-      uranusMat.map = textureLoader.load("asset/texture/2k_uranus.jpg");
+      uranusMat.map = textureLoader.load("assets/texture/2k_uranus.jpg");
       const uranus = new THREE.Mesh(uranusGeo, uranusMat);
       const uranusObj = new THREE.Object3D();
       uranusObj.add(uranus);
@@ -177,7 +190,7 @@
 
       const neptuneGeo = new THREE.SphereGeometry(neptuneRadius * 10 * radiusScale, 35, 35);
       const neptuneMat = new THREE.MeshStandardMaterial();
-      neptuneMat.map = textureLoader.load("asset/texture/2k_neptune.jpg");
+      neptuneMat.map = textureLoader.load("assets/texture/2k_neptune.jpg");
       const neptune = new THREE.Mesh(neptuneGeo, neptuneMat);
       const neptuneObj = new THREE.Object3D();
       neptuneObj.add(neptune);
@@ -210,6 +223,7 @@
           marsObj.rotateY(revolutionScale / marsRevolution);
           jupiterObj.rotateY(revolutionScale / jupiterRevolution);
           saturnObj.rotateY(revolutionScale / saturnRevolution);
+          saturnRingObj.rotateY(revolutionScale / saturnRevolution);
           uranusObj.rotateY(revolutionScale / uranusRevolution);
           neptuneObj.rotateY(revolutionScale / neptuneRevolution);
         }
