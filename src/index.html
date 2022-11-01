@@ -35,6 +35,10 @@
       const venusRotation = 35.02;
       const earthRotation = 29.78;
       const marsRotation = 24.077;
+      const jupiterRotation = 13.07;
+      const saturnRotation = 968;
+      const uranusRotation = 6.81;
+      const neptuneRotation = 5.43;
 
       // Periode Revolusi - Satuan Hari
       const revolutionScale = 1;
@@ -42,6 +46,10 @@
       const venusRevolution = 225;
       const earthRevolution = 365;
       const marsRevolution = 687;
+      const jupiterRevolution = 4333;
+      const saturnRevolution = 10759;
+      const uranusRevolution = 30687;
+      const neptuneRevolution = 60190;
 
       // Radius - Satuan Ribu KM
       const radiusScale = 0.01;
@@ -50,6 +58,10 @@
       const venusRadius = 6.0518;
       const earthRadius = 6.371;
       const marsRadius = 3.3895;
+      const jupiterRadius = 69.911;
+      const saturnRadius = 58.232;
+      const uranusRadius = 25.362;
+      const neptuneRadius = 24.622;
 
       // Jarak ke Matahari - Satuan Juta KM
       const distanceScale = 0.2;
@@ -57,6 +69,10 @@
       const venusDistance = 108;
       const earthDistance = 149.5;
       const marsDistance = 228;
+      const jupiterDistance = 778;
+      const saturnDistance = 1426.6;
+      const uranusDistance = 2870.6;
+      const neptuneDistance = 4498;
 
       // Texture Loader
       const cubeTextureLoader = new THREE.CubeTextureLoader();
@@ -132,6 +148,42 @@
       scene.add(marsObj);
       mars.position.x += marsDistance * distanceScale;
 
+      const jupiterGeo = new THREE.SphereGeometry(jupiterRadius * 10 * radiusScale, 35, 35);
+      const jupiterMat = new THREE.MeshStandardMaterial();
+      jupiterMat.map = textureLoader.load("asset/texture/2k_jupiter.jpg");
+      const jupiter = new THREE.Mesh(jupiterGeo, jupiterMat);
+      const jupiterObj = new THREE.Object3D();
+      jupiterObj.add(jupiter);
+      scene.add(jupiterObj);
+      jupiter.position.x += jupiterDistance * distanceScale;
+
+      const saturnGeo = new THREE.SphereGeometry(saturnRadius * 10 * radiusScale, 35, 35);
+      const saturnMat = new THREE.MeshStandardMaterial();
+      saturnMat.map = textureLoader.load("asset/texture/2k_saturn.jpg");
+      const saturn = new THREE.Mesh(saturnGeo, saturnMat);
+      const saturnObj = new THREE.Object3D();
+      saturnObj.add(saturn);
+      scene.add(saturnObj);
+      saturn.position.x += saturnDistance * distanceScale;
+
+      const uranusGeo = new THREE.SphereGeometry(uranusRadius * 10 * radiusScale, 35, 35);
+      const uranusMat = new THREE.MeshStandardMaterial();
+      uranusMat.map = textureLoader.load("asset/texture/2k_uranus.jpg");
+      const uranus = new THREE.Mesh(uranusGeo, uranusMat);
+      const uranusObj = new THREE.Object3D();
+      uranusObj.add(uranus);
+      scene.add(uranusObj);
+      uranus.position.x += uranusDistance * distanceScale;
+
+      const neptuneGeo = new THREE.SphereGeometry(neptuneRadius * 10 * radiusScale, 35, 35);
+      const neptuneMat = new THREE.MeshStandardMaterial();
+      neptuneMat.map = textureLoader.load("asset/texture/2k_neptune.jpg");
+      const neptune = new THREE.Mesh(neptuneGeo, neptuneMat);
+      const neptuneObj = new THREE.Object3D();
+      neptuneObj.add(neptune);
+      scene.add(neptuneObj);
+      neptune.position.x += neptuneDistance * distanceScale;
+
       let freeze = false;
       function onKeyup(event) {
         if (event.keyCode == 32) freeze = !freeze;
@@ -146,12 +198,20 @@
         venus.rotateY(venusRotation * rotationScale);
         earth.rotateY(earthRotation * rotationScale);
         mars.rotateY(marsRotation * rotationScale);
+        jupiter.rotateY(jupiterRotation * rotationScale);
+        saturn.rotateY(saturnRotation * rotationScale);
+        uranus.rotateY(uranusRotation * rotationScale);
+        neptune.rotateY(neptuneRotation * rotationScale);
 
         if (!freeze) {
           mercuryObj.rotateY(revolutionScale / mercuryRevolution);
           venusObj.rotateY(revolutionScale / venusRevolution);
           earthObj.rotateY(revolutionScale / earthRevolution);
           marsObj.rotateY(revolutionScale / marsRevolution);
+          jupiterObj.rotateY(revolutionScale / jupiterRevolution);
+          saturnObj.rotateY(revolutionScale / saturnRevolution);
+          uranusObj.rotateY(revolutionScale / uranusRevolution);
+          neptuneObj.rotateY(revolutionScale / neptuneRevolution);
         }
 
         renderer.render(scene, camera);
