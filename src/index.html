@@ -112,7 +112,7 @@
       const sun = new THREE.Mesh(sunGeo, sunMat);
       scene.add(sun);
 
-      const sunPointLight = new THREE.PointLight(0xffffff, 2, 2000);
+      const sunPointLight = new THREE.PointLight(0xffffff, 2, 1500);
       scene.add(sunPointLight);
 
       const mercuryGeo = new THREE.SphereGeometry(mercuryRadius * 10 * radiusScale, 35, 35);
@@ -178,6 +178,17 @@
       ring.position.x += saturnDistance * distanceScale;
       ring.rotation.x += -0.5 * Math.PI;
 
+      const saturnRingGeo = new THREE.RingGeometry(1.5 * saturnRadius * 10 * radiusScale, 2 * saturnRadius * 10 * radiusScale, 35); // ukuran belum sesuai
+      const saturnRingMat = new THREE.MeshBasicMaterial();
+      saturnRingMat.map = textureLoader.load("assets/texture/2k_saturn_ring_alpha.png");
+      saturnRingMat.side = THREE.DoubleSide;
+      const saturnRing = new THREE.Mesh(saturnRingGeo, saturnRingMat);
+      const saturnRingObj = new THREE.Object3D();
+      saturnRingObj.add(saturnRing);
+      scene.add(saturnRingObj);
+      saturnRing.position.x += saturnDistance * distanceScale;
+      saturnRing.rotation.x = -0.5 * Math.PI;
+
       const uranusGeo = new THREE.SphereGeometry(uranusRadius * 10 * radiusScale, 35, 35);
       const uranusMat = new THREE.MeshStandardMaterial();
       uranusMat.map = textureLoader.load("assets/texture/2k_uranus.jpg");
@@ -222,6 +233,7 @@
           marsObj.rotateY(revolutionScale / marsRevolution);
           jupiterObj.rotateY(revolutionScale / jupiterRevolution);
           saturnObj.rotateY(revolutionScale / saturnRevolution);
+          saturnRingObj.rotateY(revolutionScale / saturnRevolution);
           uranusObj.rotateY(revolutionScale / uranusRevolution);
           neptuneObj.rotateY(revolutionScale / neptuneRevolution);
         }
