@@ -99,9 +99,11 @@
       const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
       camera.position.set(-60, 30, 50);
 
-      const flyControls = new FlyControls(camera, renderer.domElement);
-      flyControls.movementSpeed = 3.5;
-      flyControls.rollSpeed = 0.1;
+      // const flyControls = new FlyControls(camera, renderer.domElement);
+      // flyControls.movementSpeed = 3.5;
+      // flyControls.rollSpeed = 0.1;
+      const orbit = new OrbitControls(camera, renderer.domElement);
+      orbit.update();
 
       const ambientLight = new THREE.AmbientLight(0x333333);
       scene.add(ambientLight);
@@ -200,13 +202,26 @@
       scene.add(neptuneObj);
       neptune.position.x += neptuneDistance * distanceScale;
 
-      const orbitLineGeo = new THREE.RingGeometry(mercury.position.x, mercury.position.x + 0.05, 35, 35);
-      const orbitLineMat = new THREE.MeshBasicMaterial();
-      orbitLineMat.color = 0x000000;
-      orbitLineMat.transparent = true;
-      const orbitLine = new THREE.Mesh(orbitLineGeo, orbitLineMat);
-      scene.add(orbitLine);
-      orbitLine.rotation.x = -0.5 * Math.PI;
+      //lintasan orbit planet
+      function orbitPlanet(planet){
+        const orbitLineGeo = new THREE.RingGeometry(planet.position.x, planet.position.x + 0.05, 35, 35);
+        const orbitLineMat = new THREE.MeshBasicMaterial();
+        orbitLineMat.color = 0x000000;
+        orbitLineMat.transparent = true;
+        const orbitLine = new THREE.Mesh(orbitLineGeo, orbitLineMat);
+        scene.add(orbitLine);
+        orbitLine.rotation.x = -0.5 * Math.PI;
+      }
+
+      //orbit tiap planet
+      orbitPlanet(mercury)
+      orbitPlanet(venus)
+      orbitPlanet(earth)
+      orbitPlanet(mars)
+      orbitPlanet(jupiter)
+      orbitPlanet(saturn)
+      orbitPlanet(uranus)
+      orbitPlanet(neptune)
 
       let freeze = false;
       function onKeyup(event) {
@@ -239,7 +254,7 @@
           neptuneObj.rotateY(revolutionScale / neptuneRevolution);
         }
 
-        flyControls.update(0.05);
+        // flyControls.update(0.05);
 
         renderer.render(scene, camera);
       }
