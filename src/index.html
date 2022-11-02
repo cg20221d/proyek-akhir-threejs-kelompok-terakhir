@@ -99,8 +99,9 @@
       const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
       camera.position.set(-60, 30, 50);
 
-      const orbit = new OrbitControls(camera, renderer.domElement);
-      orbit.update();
+      const flyControls = new FlyControls(camera, renderer.domElement);
+      flyControls.movementSpeed = 3.5;
+      flyControls.rollSpeed = 0.1;
 
       const ambientLight = new THREE.AmbientLight(0x333333);
       scene.add(ambientLight);
@@ -168,20 +169,12 @@
       saturnObj.add(saturn);
       scene.add(saturnObj);
       saturn.position.x += saturnDistance * distanceScale;
-      const ringGeo = new THREE.RingBufferGeometry(innerRadius * 10 * radiusScale, outerRadius * 10 * radiusScale, 35);
-      const ringMat = new THREE.MeshBasicMaterial();
-      ringMat.map = textureLoader.load("assets/texture/2k_saturn_ring_alpha.png");
-      ringMat.side = THREE.DoubleSide;
-      ringMat.transparent = true;
-      const ring = new THREE.Mesh(ringGeo, ringMat);
-      saturnObj.add(ring);
-      ring.position.x += saturnDistance * distanceScale;
-      ring.rotation.x += -0.5 * Math.PI;
 
-      const saturnRingGeo = new THREE.RingGeometry(1.5 * saturnRadius * 10 * radiusScale, 2 * saturnRadius * 10 * radiusScale, 35); // ukuran belum sesuai
+      const saturnRingGeo = new THREE.RingGeometry(innerRadius * 10 * radiusScale, outerRadius * 10 * radiusScale, 35); // ukuran belum sesuai
       const saturnRingMat = new THREE.MeshBasicMaterial();
       saturnRingMat.map = textureLoader.load("assets/texture/2k_saturn_ring_alpha.png");
       saturnRingMat.side = THREE.DoubleSide;
+      saturnRingMat.transparent = true;
       const saturnRing = new THREE.Mesh(saturnRingGeo, saturnRingMat);
       const saturnRingObj = new THREE.Object3D();
       saturnRingObj.add(saturnRing);
@@ -206,6 +199,14 @@
       neptuneObj.add(neptune);
       scene.add(neptuneObj);
       neptune.position.x += neptuneDistance * distanceScale;
+
+      const orbitLineGeo = new THREE.RingGeometry(mercury.position.x, mercury.position.x + 0.05, 35, 35);
+      const orbitLineMat = new THREE.MeshBasicMaterial();
+      orbitLineMat.color = 0x000000;
+      orbitLineMat.transparent = true;
+      const orbitLine = new THREE.Mesh(orbitLineGeo, orbitLineMat);
+      scene.add(orbitLine);
+      orbitLine.rotation.x = -0.5 * Math.PI;
 
       let freeze = false;
       function onKeyup(event) {
@@ -237,6 +238,8 @@
           uranusObj.rotateY(revolutionScale / uranusRevolution);
           neptuneObj.rotateY(revolutionScale / neptuneRevolution);
         }
+
+        flyControls.update(0.05);
 
         renderer.render(scene, camera);
       }
