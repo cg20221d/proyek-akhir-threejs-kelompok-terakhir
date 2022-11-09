@@ -11,12 +11,12 @@ import renderer from "./Renderer";
 
 
 scene.background = cubeTextureLoader.load([
-    "/public/assets/texture/2k_stars.jpg",
-    "/public/assets/texture/2k_stars.jpg",
-    "/public/assets/texture/2k_stars.jpg",
-    "/public/assets/texture/2k_stars.jpg",
-    "/public/assets/texture/2k_stars.jpg",
-    "/public/assets/texture/2k_stars_milky_way.jpg",
+    "/src/assets/texture/2k_stars.jpg",
+    "/src/assets/texture/2k_stars.jpg",
+    "/src/assets/texture/2k_stars.jpg",
+    "/src/assets/texture/2k_stars.jpg",
+    "/src/assets/texture/2k_stars.jpg",
+    "/src/assets/texture/2k_stars_milky_way.jpg",
 ]);
 
 
