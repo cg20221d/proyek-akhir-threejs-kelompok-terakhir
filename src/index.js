@@ -9,14 +9,16 @@ import { earth, earthObj, jupiter, jupiterObj, mars, marsObj, mercury, mercuryOb
 import { distanceScale, earthDistance, earthRevolution, earthRotation, jupiterDistance, jupiterRevolution, jupiterRotation, marsDistance, marsRevolution, marsRotation, mercuryDistance, mercuryRevolution, mercuryRotation, neptuneDistance, neptuneRevolution, neptuneRotation, revolutionScale, rotationScale, saturnDistance, saturnRevolution, saturnRotation, sunRotation, uranusDistance, uranusRevolution, uranusRotation, venusDistance, venusRevolution, venusRotation } from "./Data";
 import renderer from "./Renderer";
 
+import starsTexture from "./assets/texture/2k_stars.jpg"
+import starsMilkyWayTexture from "./assets/texture/2k_stars_milky_way.jpg"
 
 scene.background = cubeTextureLoader.load([
-    "/src/assets/texture/2k_stars.jpg",
-    "/src/assets/texture/2k_stars.jpg",
-    "/src/assets/texture/2k_stars.jpg",
-    "/src/assets/texture/2k_stars.jpg",
-    "/src/assets/texture/2k_stars.jpg",
-    "/src/assets/texture/2k_stars_milky_way.jpg",
+    starsTexture,
+    starsTexture,
+    starsTexture,
+    starsTexture,
+    starsTexture,
+    starsMilkyWayTexture
 ]);
 
 
