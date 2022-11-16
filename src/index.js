@@ -1,7 +1,7 @@
 import scene from "./Scene"
 import { cubeTextureLoader } from "./TextureLoader";
 import camera from "./Camera";
-import orbit from "./Orbit"
+import { orbit, flyControls } from "./Controls"
 // Import
 import * as THREE from "three";
 import ambientLight from "./Light";
@@ -24,11 +24,10 @@ scene.background = cubeTextureLoader.load([
 
 camera.position.set(-60, 30, 50);
 
-// const flyControls = new FlyControls(camera, renderer.domElement);
-// flyControls.movementSpeed = 3.5;
-// flyControls.rollSpeed = 0.1;
+flyControls.movementSpeed = 3.5;
+flyControls.rollSpeed = 0.1;
 
-orbit.update();
+// orbit.update();
 
 scene.add(ambientLight);
 
@@ -117,7 +116,7 @@ function animate() {
         neptuneObj.rotateY(revolutionScale / neptuneRevolution);
     }
 
-    // flyControls.update(0.05);
+    flyControls.update(0.05);
 
     renderer.render(scene, camera);
 }
