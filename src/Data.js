@@ -12,7 +12,7 @@ export const uranusRotation = 6.81;
 export const neptuneRotation = 5.43;
 
 // Periode Revolusi - Satuan Hari
-export const revolutionScale = 0.05;
+export const revolutionScale = 0.02;
 export const mercuryRevolution = 88;
 export const venusRevolution = 225;
 export const earthRevolution = 365;

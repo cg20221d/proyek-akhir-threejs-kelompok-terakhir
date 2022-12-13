@@ -1,49 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Jelata</title>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<style>
-		#toolbox {
-			position: absolute;
-			top: 0;
-			left: 0;
-			background-color: black;
-			color: white;
-			padding: 10px;
-			width: 130px;
-		}
-		.box {
-			display: flex;
-			justify-content: space-between;
-		}
-		.list {
-			display: flex;
-			flex-direction: column;
-		}
-	</style>
-	<body>
-		<div id="toolbox">
-			<p>Go to planet</p>
-			<div class="box">
-				<div class="list">
-					<a href="mercury.html">Mercury</a>
-					<a href="venus.html">Venus</a>
-					<a href="earth.html">Earth</a>
-					<a href="mars.html">Mars</a>
-				</div>
-				<div class="list">
-					<a href="jupiter.html">Jupiter</a>
-					<a href="saturn.html">Saturn</a>
-					<a href="uranus.html">Uranus</a>
-					<a href="neptune.html">Neptune</a>
-				</div>
-			</div>
-		</div>
-		<script src="dist/bundle.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jelata</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="splash">
+      <div>
+        <h1>JELATA</h1>
+        <h2>Jelajah Tata Surya</h2>
+        <p>Oleh Kelompok Terakhir</p>
+      </div>
+      <p id="tips">Click anywhere to continue</p>
+    </div>
+    <button id="btn" class="hidden">Toolbox</button>
+    <div id="toolbox" class="hidden">
+      <button id="close">x</button>
+      <header>
+        <h1 id="title">JELATA</h1>
+        <h4 id="sub-title">Jelajah Tata Surya</h4>
+      </header>
+      <main>
+        <div id="planet-list">
+          <div id="btn-mercury" class="btn-planet">Mercury</div>
+          <div id="btn-venus" class="btn-planet">Venus</div>
+          <div id="btn-earth" class="btn-planet">Earth</div>
+          <div id="btn-mars" class="btn-planet">Mars</div>
+          <div id="btn-jupiter" class="btn-planet">Jupiter</div>
+          <div id="btn-saturn" class="btn-planet">Saturn</div>
+          <div id="btn-uranus" class="btn-planet">Uranus</div>
+          <div id="btn-neptune" class="btn-planet">Neptune</div>
+        </div>
+        <div id="page-mercury" class="hidden page">
+          <button id="back-mercury" class="btn-back">Back</button>
+          <img src="/public/assets/ico-mercury.png" alt="mercury" />
+          <p>
+            Merkurius adalah planet terkecil di Tata Surya sekaligus yang terdekat dari Matahari. Periode revolusi planet ini merupakan yang terpendek dari semua planet di Tata Surya, yakni 87,79 hari. Seperti halnya Venus, Merkurius
+            merupakan planet inferior yang letak orbitnya berada di sebelah dalam orbit Bumi, dan ketika diamati dari Bumi, jarak sudutnya dari Matahari tidak pernah melebihi 28°.
+          </p>
+          <button id="travel-mercury" class="btn-planet">Fast Travel</button>
+          <a href="/mercury.html" class="btn-planet">Enter Planet</a>
+        </div>
+        <div id="page-venus" class="hidden page">
+          <button id="back-venus" class="btn-back">Back</button>
+          <img src="/public/assets/ico-venus.png" alt="venus" />
+          <p>
+            Venus adalah planet terdekat kedua dari Matahari setelah Merkurius. Planet ini mengorbit Matahari selama 224,7 hari Bumi. Venus tidak memiliki satelit alami dan dinamai dari dewi cinta dan kecantikan dalam mitologi Romawi.
+            Setelah Bulan, planet ini merupakan objek alami tercerah di langit malam, dengan magnitudo tampak sebesar −4,6 yang cukup cerah untuk menghasilkan bayangan.
+          </p>
+          <button id="travel-venus" class="btn-planet">Fast Travel</button>
+          <a href="/venus.html" class="btn-planet">Enter Planet</a>
+        </div>
+        <div id="page-earth" class="hidden page">
+          <button id="back-earth" class="btn-back">Back</button>
+          <img src="/public/assets/ico-earth.png" alt="earth" />
+          <p>
+            Bumi adalah planet ketiga dari Matahari yang merupakan planet terpadat dan terbesar kelima dari delapan planet dalam Tata Surya. Bumi juga merupakan planet terbesar dari empat planet kebumian di Tata Surya. Bumi terkadang
+            disebut dengan dunia atau Planet Biru.
+          </p>
+          <button id="travel-earth" class="btn-planet">Fast Travel</button>
+          <a href="/earth.html" class="btn-planet">Enter Planet</a>
+        </div>
+        <div id="page-mars" class="hidden page">
+          <button id="back-mars" class="btn-back">Back</button>
+          <img src="/public/assets/ico-mars.png" alt="mars" />
+          <p>
+            Mars adalah planet terdekat keempat dari Matahari. Namanya diambil dari dewa perang Romawi, Mars. Planet ini sering dijuluki sebagai "planet merah" karena tampak dari jauh berwarna kemerah-kemerahan. Ini disebabkan oleh
+            keberadaan besi(III) oksida di permukaan planet Mars. Mars adalah planet bebatuan dengan atmosfer yang tipis. Di permukaan Mars terdapat kawah, gunung berapi, lembah, gurun, dan tudung es.
+          </p>
+          <button id="travel-mars" class="btn-planet">Fast Travel</button>
+          <a href="/mars.html" class="btn-planet">Enter Planet</a>
+        </div>
+        <div id="page-jupiter" class="hidden page">
+          <button id="back-jupiter" class="btn-back">Back</button>
+          <img src="/public/assets/ico-jupiter.png" alt="jupiter" />
+          <p>
+            Jupiter atau Yupiter adalah planet terdekat kelima dari Matahari setelah Merkurius, Venus, Bumi, dan Mars. Planet ini juga merupakan planet terbesar di Tata Surya. Jupiter merupakan raksasa gas dengan massa seperseribu massa
+            Matahari dan dua setengah kali jumlah massa semua planet lain di Tata Surya.
+          </p>
+          <button id="travel-jupiter" class="btn-planet">Fast Travel</button>
+          <a href="/jupiter.html" class="btn-planet">Enter Planet</a>
+        </div>
+        <div id="page-saturn" class="hidden page">
+          <button id="back-saturn" class="btn-back">Back</button>
+          <img src="/public/assets/ico-saturn.png" alt="saturn" />
+          <p>
+            Saturnus adalah planet keenam dari Matahari dan merupakan planet terbesar kedua di Tata Surya setelah Jupiter. Saturnus juga merupakan sebuah raksasa gas yang memiliki radius rata-rata sekitar 9 kali radius rata-rata Bumi. Massa
+            jenis rata-rata Saturnus hanya 1/8 massa jenis rata-rata Bumi, tetapi dengan volume yang lebih besar dari Bumi, massa Saturnus tercatat 95 kali massa Bumi. Saturnus dinamai menurut dewa kesejahteraan dan agribudaya dalam
+            mitologi Yunani; simbol astronominya (♄) melambangkan sabit yang digunakan oleh dewa tersebut.
+          </p>
+          <button id="travel-saturn" class="btn-planet">Fast Travel</button>
+          <a href="/saturn.html" class="btn-planet">Enter Planet</a>
+        </div>
+        <div id="page-uranus" class="hidden page">
+          <button id="back-uranus" class="btn-back">Back</button>
+          <img src="/public/assets/ico-uranus.png" alt="uranus" />
+          <p>
+            Uranus (berasal dari nama Latin Ūranus untuk nama dewa Yunani Οὐρανός) adalah planet ketujuh dari Matahari. Uranus merupakan planet yang memiliki jari-jari terbesar ketiga sekaligus massa terbesar keempat di Tata Surya. Uranus
+            juga merupakan satu-satunya planet yang namanya berasal dari tokoh dalam mitologi Yunani, dari versi Latinisasi nama dewa langit Yunani Ouranos. Komposisi Uranus serupa dengan Neptunus, dan keduanya mempunyai komposisi kimiawi
+            yang berbeda dari raksasa gas yang lebih besar, Jupiter dan Saturnus.
+          </p>
+          <button id="travel-uranus" class="btn-planet">Fast Travel</button>
+          <a href="/uranus.html" class="btn-planet">Enter Planet</a>
+        </div>
+        <div id="page-neptune" class="hidden page">
+          <button id="back-neptune" class="btn-back">Back</button>
+          <img src="/public/assets/ico-neptune.png" alt="neptune" />
+          <p>
+            Neptunus merupakan planet terjauh (kedelapan) jika ditinjau dari Matahari. Planet ini dinamai dari dewa lautan Romawi. Neptunus merupakan planet terbesar keempat berdasarkan diameter (49.530 km) dan terbesar ketiga berdasarkan
+            massa. Massa Neptunus tercatat 17 kali lebih besar daripada Bumi, dan sedikit lebih kecil daripada Uranus. Neptunus mengorbit Matahari pada jarak 30,1 sa atau sekitar 4.450 juta km. Periode rotasi planet ini adalah 16,1 jam,
+            sedangkan periode revolusinya adalah 164,8 tahun. Simbol astronomisnya adalah ♆, yang merupakan trisula dewa Neptunus.
+          </p>
+          <button id="travel-neptune" class="btn-planet">Fast Travel</button>
+          <a href="/neptune.html" class="btn-planet">Enter Planet</a>
+        </div>
+      </main>
+    </div>
+    <script src="dist/bundle.js"></script>
+    <script>
+      const btn = document.getElementById("btn");
+      const toolbox = document.getElementById("toolbox");
+      const splash = document.getElementById("splash");
+      const close = document.getElementById("close");
+      const title = document.getElementById("title");
+      const subTitle = document.getElementById("sub-title");
+
+      splash.addEventListener("click", function () {
+        splash.classList.add("hidden");
+        btn.classList.remove("hidden");
+      });
+
+      btn.addEventListener("click", function () {
+        btn.classList.add("hidden");
+        toolbox.classList.remove("hidden");
+      });
+
+      close.addEventListener("click", function () {
+        toolbox.classList.add("hidden");
+        btn.classList.remove("hidden");
+      });
+
+      const planetList = document.getElementById("planet-list");
+      const btnMercury = document.getElementById("btn-mercury");
+      const pageMercury = document.getElementById("page-mercury");
+      const backMercury = document.getElementById("back-mercury");
+      btnMercury.addEventListener("click", function () {
+        planetList.classList.add("hidden");
+        pageMercury.classList.remove("hidden");
+        title.innerText = "Mercury";
+        subTitle.innerText = "Merkurius merupakan planet terkecil";
+      });
+      backMercury.addEventListener("click", function () {
+        planetList.classList.remove("hidden");
+        pageMercury.classList.add("hidden");
+        title.innerText = "JELATA";
+        subTitle.innerText = "Jelajah Tata Surya";
+      });
+
+      const btnVenus = document.getElementById("btn-venus");
+      const pageVenus = document.getElementById("page-venus");
+      const backVenus = document.getElementById("back-venus");
+      btnVenus.addEventListener("click", function () {
+        planetList.classList.add("hidden");
+        pageVenus.classList.remove("hidden");
+        title.innerText = "Venus";
+        subTitle.innerText = "Venus adalah planet kedua dari Matahari";
+      });
+      backVenus.addEventListener("click", function () {
+        planetList.classList.remove("hidden");
+        pageVenus.classList.add("hidden");
+        title.innerText = "JELATA";
+        subTitle.innerText = "Jelajah Tata Surya";
+      });
+
+      const btnEarth = document.getElementById("btn-earth");
+      const pageEarth = document.getElementById("page-earth");
+      const backEarth = document.getElementById("back-earth");
+      btnEarth.addEventListener("click", function () {
+        planetList.classList.add("hidden");
+        pageEarth.classList.remove("hidden");
+        title.innerText = "Earth";
+        subTitle.innerText = "Satu-satunya planet yang tidak didasari dari nama dewa";
+      });
+      backEarth.addEventListener("click", function () {
+        planetList.classList.remove("hidden");
+        pageEarth.classList.add("hidden");
+        title.innerText = "JELATA";
+        subTitle.innerText = "Jelajah Tata Surya";
+      });
+
+      const btnMars = document.getElementById("btn-mars");
+      const pageMars = document.getElementById("page-mars");
+      const backMars = document.getElementById("back-mars");
+      btnMars.addEventListener("click", function () {
+        planetList.classList.add("hidden");
+        pageMars.classList.remove("hidden");
+        title.innerText = "Mars";
+        subTitle.innerText = "Meskipun berwarna merah, Mars adalah tempat yang dingin";
+      });
+      backMars.addEventListener("click", function () {
+        planetList.classList.remove("hidden");
+        pageMars.classList.add("hidden");
+        title.innerText = "JELATA";
+        subTitle.innerText = "Jelajah Tata Surya";
+      });
+
+      const btnJupiter = document.getElementById("btn-jupiter");
+      const pageJupiter = document.getElementById("page-jupiter");
+      const backJupiter = document.getElementById("back-jupiter");
+      btnJupiter.addEventListener("click", function () {
+        planetList.classList.add("hidden");
+        pageJupiter.classList.remove("hidden");
+        title.innerText = "Jupiter";
+        subTitle.innerText = "Jupiter merupakan planet terbesar dari semuanya";
+      });
+      backJupiter.addEventListener("click", function () {
+        planetList.classList.remove("hidden");
+        pageJupiter.classList.add("hidden");
+        title.innerText = "JELATA";
+        subTitle.innerText = "Jelajah Tata Surya";
+      });
+
+      const btnSaturn = document.getElementById("btn-saturn");
+      const pageSaturn = document.getElementById("page-saturn");
+      const backSaturn = document.getElementById("back-saturn");
+      btnSaturn.addEventListener("click", function () {
+        planetList.classList.add("hidden");
+        pageSaturn.classList.remove("hidden");
+        title.innerText = "Saturn";
+        subTitle.innerText = "Saturnus adalah raksasa gas dan memiliki beberapa cincin";
+      });
+      backSaturn.addEventListener("click", function () {
+        planetList.classList.remove("hidden");
+        pageSaturn.classList.add("hidden");
+        title.innerText = "JELATA";
+        subTitle.innerText = "Jelajah Tata Surya";
+      });
+
+      const btnUranus = document.getElementById("btn-uranus");
+      const pageUranus = document.getElementById("page-uranus");
+      const backUranus = document.getElementById("back-uranus");
+      btnUranus.addEventListener("click", function () {
+        planetList.classList.add("hidden");
+        pageUranus.classList.remove("hidden");
+        title.innerText = "Uranus";
+        subTitle.innerText = "Tak hanya saturnus yang memiliki cincin, Uranus juga";
+      });
+      backUranus.addEventListener("click", function () {
+        planetList.classList.remove("hidden");
+        pageUranus.classList.add("hidden");
+        title.innerText = "JELATA";
+        subTitle.innerText = "Jelajah Tata Surya";
+      });
+
+      const btnNeptune = document.getElementById("btn-neptune");
+      const pageNeptune = document.getElementById("page-neptune");
+      const backNeptune = document.getElementById("back-neptune");
+      btnNeptune.addEventListener("click", function () {
+        planetList.classList.add("hidden");
+        pageNeptune.classList.remove("hidden");
+        title.innerText = "Neptune";
+        subTitle.innerText = "Neptunus memiliki usia yang hampir sama dengan matahari";
+      });
+      backNeptune.addEventListener("click", function () {
+        planetList.classList.remove("hidden");
+        pageNeptune.classList.add("hidden");
+        title.innerText = "JELATA";
+        subTitle.innerText = "Jelajah Tata Surya";
+      });
+    </script>
+  </body>
 </html>

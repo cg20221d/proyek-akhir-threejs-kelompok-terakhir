@@ -40,7 +40,9 @@ export class BasicCharacterController {
       });
 
       this._target = fbx;
+      this._target.name = "Astronot";
       this._target.position.set(1880, -5, 1172);
+
       this._params.scene.add(this._target);
 
       this._mixer = new THREE.AnimationMixer(this._target);
@@ -106,7 +108,7 @@ export class BasicCharacterController {
     const _Q = new THREE.Quaternion();
     const _A = new THREE.Vector3();
     const _R = controlObject.quaternion.clone();
-    console.log(this._target.position);
+
     const acc = this._acceleration.clone();
     if (this._input._keys.shift) {
       acc.multiplyScalar(30.0);
@@ -151,6 +153,8 @@ export class BasicCharacterController {
 
     controlObject.position.add(forward);
     controlObject.position.add(sideways);
+
+    console.log(controlObject.position);
 
     this._position.copy(controlObject.position);
 
@@ -356,7 +360,6 @@ class WalkState extends State {
         curAction.setEffectiveTimeScale(1.0);
         curAction.setEffectiveWeight(1.0);
       }
-      console.log(curAction.getClip());
       curAction.crossFadeFrom(prevAction, 0.5, true);
       curAction.play();
     } else {

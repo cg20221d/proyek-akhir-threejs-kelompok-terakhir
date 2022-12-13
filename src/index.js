@@ -56,24 +56,23 @@ class Main {
 
     this._scene.add(jupiterObj);
     jupiter.position.x += jupiterDistance * distanceScale;
-    jupiterObj.rotateY(200);
+    jupiterObj.rotateY(-150);
 
     this._scene.add(saturnObj);
     saturn.position.x += saturnDistance * distanceScale;
-    saturnObj.rotateY(250);
-
+    saturnObj.rotateY(-100);
     this._scene.add(saturnRingObj);
     saturnRing.position.x += saturnDistance * distanceScale;
     saturnRing.rotation.x = -0.5 * Math.PI;
-    saturnRingObj.rotateY(250);
+    saturnRingObj.rotateY(-100);
 
     this._scene.add(uranusObj);
     uranus.position.x += uranusDistance * distanceScale;
-    uranusObj.rotateY(300);
+    uranusObj.rotateY(-50);
 
     this._scene.add(neptuneObj);
     neptune.position.x += neptuneDistance * distanceScale;
-    neptuneObj.rotateY(350);
+    neptuneObj.rotateY(0);
 
     //lintasan orbit planet
     function orbitPlanet(planet) {
@@ -100,7 +99,45 @@ class Main {
     // controls.movementSpeed = 3.5;
     // controls.rollSpeed = 0.1;
 
-    this._freeze = true;
+    const travelMercury = document.getElementById("travel-mercury");
+    travelMercury.addEventListener("click", function () {
+      travel(870, -5, 25);
+    });
+    const travelVenus = document.getElementById("travel-venus");
+    travelVenus.addEventListener("click", function () {
+      travel(1530, -5, 489);
+    });
+    const travelEarth = document.getElementById("travel-earth");
+    travelEarth.addEventListener("click", function () {
+      travel(1888, -5, 1194);
+    });
+    const travelMars = document.getElementById("travel-mars");
+    travelMars.addEventListener("click", function () {
+      travel(2353, -5, 2454);
+    });
+    const travelJupiter = document.getElementById("travel-jupiter");
+    travelJupiter.addEventListener("click", function () {
+      travel(8750, -5, -7709);
+    });
+    const travelSaturn = document.getElementById("travel-saturn");
+    travelSaturn.addEventListener("click", function () {
+      travel(18933, -5, -9800);
+    });
+    const travelUranus = document.getElementById("travel-uranus");
+    travelUranus.addEventListener("click", function () {
+      travel(41552, -5, -11046);
+    });
+    const travelNeptune = document.getElementById("travel-neptune");
+    travelNeptune.addEventListener("click", function () {
+      travel(67430, -5, 340);
+    });
+
+    function travel(a, b, c) {
+      const astronot = scene.getObjectByName("Astronot");
+      astronot.position.set(a, b, c);
+    }
+
+    this._freeze = false;
 
     this._mixers = [];
     this._previousRAF = null;
