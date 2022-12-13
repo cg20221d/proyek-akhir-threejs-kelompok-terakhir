@@ -7,7 +7,43 @@
 		<title>Jelata</title>
 		<link rel="stylesheet" href="style.css" />
 	</head>
+	<style>
+		#toolbox {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: black;
+			color: white;
+			padding: 10px;
+			width: 100px;
+		}
+		.box {
+			display: flex;
+			justify-content: space-between;
+		}
+		.list {
+			display: flex;
+			flex-direction: column;
+		}
+	</style>
 	<body>
+		<div id="toolbox">
+			<p>Go to planet</p>
+			<div class="box">
+				<div class="list">
+					<a href="mercury.html">Mercury</a>
+					<a href="venus.html">Venus</a>
+					<a href="earth.html">Earth</a>
+					<a href="mars.html">Mars</a>
+				</div>
+				<div class="list">
+					<a href="jupiter.html">Jupiter</a>
+					<a href="saturn.html">Saturn</a>
+					<a href="uranus.html">Uranus</a>
+					<a href="neptune.html">Neptune</a>
+				</div>
+			</div>
+		</div>
 		<script src="dist/bundle.js"></script>
 	</body>
 </html>

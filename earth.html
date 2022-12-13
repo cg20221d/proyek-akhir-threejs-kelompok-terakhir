@@ -87,7 +87,7 @@
 				camera.position.y = 10;
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color(0x87ceeb);
+				scene.background = new THREE.Color(0x000000);
 				scene.fog = new THREE.Fog(0x87ceeb, 0, 750);
 
 				const light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75);
@@ -191,7 +191,7 @@
 
 					position.setXYZ(i, vertex.x, vertex.y, vertex.z);
 				}
-				const floorMaterial = new THREE.MeshBasicMaterial({ color: 0x0044ff, map: texture });
+				const floorMaterial = new THREE.MeshBasicMaterial({ map: texture });
 
 				const floor = new THREE.Mesh(floorGeometry, floorMaterial);
 				scene.add(floor);
