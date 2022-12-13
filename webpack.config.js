@@ -1,37 +1,16 @@
-const path = require("path"),
-    HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path")
 
-
-const pages = ["main", "mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"];
 module.exports = {
-    entry: pages.reduce((config, page) => {
-        config[page] = `./src/${page}.js`;
-        return config;
-    }, {}),
+    entry: "./src/index.js",
     output: {
-        filename: "[name].js",
+        filename: "bundle.js",
         path: path.resolve(__dirname, "dist"),
     },
-    optimization: {
-        splitChunks: {
-            chunks: "all",
-        },
+
+    devtool: 'eval-source-map',
+    devServer: {
+        contentBase: './dist'
     },
-    plugins: [].concat(
-        pages.map(
-            (page) =>
-                new HtmlWebpackPlugin({
-                    inject: true,
-                    template: `./${page}.html`,
-                    filename: `${page}.html`,
-                    chunks: [page],
-                })
-        )
-    ),
-    // devtool: 'eval-source-map',
-    // devServer: {
-    //     contentBase: './dist'
-    // },
     module: {
         rules: [
             {
