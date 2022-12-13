@@ -14,6 +14,8 @@ Diusulkan oleh Kelompok Terakhir
 
 Link ppt : [https://docs.google.com/presentation/d/1CZeNk4gccMInscv_9A2M3xKHrklPA_DZEvUU25x-tvo/edit#slide=id.g9d9be438c2_0_339](https://docs.google.com/presentation/d/1CZeNk4gccMInscv_9A2M3xKHrklPA_DZEvUU25x-tvo/edit#slide=id.g9d9be438c2_0_339)
 
+Demo Aplikasi : [https://jelata.netlify.app/main.html](https://jelata.netlify.app/main.html)
+
 ## Run this project
 
 1. Clone github ini
