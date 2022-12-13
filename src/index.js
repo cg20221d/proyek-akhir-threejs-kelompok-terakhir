@@ -95,7 +95,7 @@ class Main {
     orbitPlanet(uranus);
     orbitPlanet(neptune);
 
-    controls.update();
+    // controls.update();
     // controls.movementSpeed = 3.5;
     // controls.rollSpeed = 0.1;
 

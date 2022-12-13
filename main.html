@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jelata</title>
+    <title>JELATA | Solar System</title>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
     <div id="splash">
+      <img src="/android-chrome-512x512.png" alt="" style="width: 200px" />
       <div>
         <h1>JELATA</h1>
         <h2>Jelajah Tata Surya</h2>
@@ -16,7 +21,9 @@
       </div>
       <p id="tips">Click anywhere to continue</p>
     </div>
-    <button id="btn" class="hidden">Toolbox</button>
+    <button id="btn" class="hidden">PANEL</button>
+    <audio src="/public/assets/clickk.mp3" id="click"></audio>
+    <audio src="./public/assets/hover.mp3" id="hover"></audio>
     <div id="toolbox" class="hidden">
       <button id="close">x</button>
       <header>
@@ -25,14 +32,14 @@
       </header>
       <main>
         <div id="planet-list">
-          <div id="btn-mercury" class="btn-planet">Mercury</div>
-          <div id="btn-venus" class="btn-planet">Venus</div>
-          <div id="btn-earth" class="btn-planet">Earth</div>
-          <div id="btn-mars" class="btn-planet">Mars</div>
-          <div id="btn-jupiter" class="btn-planet">Jupiter</div>
-          <div id="btn-saturn" class="btn-planet">Saturn</div>
-          <div id="btn-uranus" class="btn-planet">Uranus</div>
-          <div id="btn-neptune" class="btn-planet">Neptune</div>
+          <button id="btn-mercury" class="btn-planet">Mercury</button>
+          <button id="btn-venus" class="btn-planet">Venus</button>
+          <button id="btn-earth" class="btn-planet">Earth</button>
+          <button id="btn-mars" class="btn-planet">Mars</button>
+          <button id="btn-jupiter" class="btn-planet">Jupiter</button>
+          <button id="btn-saturn" class="btn-planet">Saturn</button>
+          <button id="btn-uranus" class="btn-planet">Uranus</button>
+          <button id="btn-neptune" class="btn-planet">Neptune</button>
         </div>
         <div id="page-mercury" class="hidden page">
           <button id="back-mercury" class="btn-back">Back</button>
