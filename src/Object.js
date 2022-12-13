@@ -1,24 +1,24 @@
-import * as THREE from 'three';
-import { textureLoader } from './TextureLoader';
-import { sunRadius, radiusScale, mercuryRadius, venusRadius, earthRadius, marsRadius, jupiterRadius, saturnRadius, innerRadius, outerRadius, uranusRadius, neptuneRadius } from "./Data"
+import * as THREE from "three";
+import { textureLoader } from "./TextureLoader";
+import { sunRadius, radiusScale, mercuryRadius, venusRadius, earthRadius, marsRadius, jupiterRadius, saturnRadius, innerRadius, outerRadius, uranusRadius, neptuneRadius } from "./Data";
 
-import sunTexture from "./assets/texture/2k_sun.jpg"
-import earthTexture from "./assets/texture/2k_earth_daymap.jpg"
-import jupiterTexture from "./assets/texture/2k_jupiter.jpg"
-import marsTexture from "./assets/texture/2k_mars.jpg"
-import mercuryTexture from "./assets/texture/2k_mercury.jpg"
-import neptuneTexture from "./assets/texture/2k_neptune.jpg"
-import saturnTexture from "./assets/texture/2k_saturn.jpg"
-import uranusTexture from "./assets/texture/2k_uranus.jpg"
-import venusTexture from "./assets/texture/2k_venus_atmosphere.jpg"
-import saturnRingTexture from "./assets/texture/2k_saturn_ring_alpha.png"
+import sunTexture from "./assets/texture/2k_sun.jpg";
+import earthTexture from "./assets/texture/2k_earth_daymap.jpg";
+import jupiterTexture from "./assets/texture/2k_jupiter.jpg";
+import marsTexture from "./assets/texture/2k_mars.jpg";
+import mercuryTexture from "./assets/texture/2k_mercury.jpg";
+import neptuneTexture from "./assets/texture/2k_neptune.jpg";
+import saturnTexture from "./assets/texture/2k_saturn.jpg";
+import uranusTexture from "./assets/texture/2k_uranus.jpg";
+import venusTexture from "./assets/texture/2k_venus_atmosphere.jpg";
+import saturnRingTexture from "./assets/texture/2k_saturn_ring_alpha.png";
 
 const sunGeo = new THREE.SphereGeometry(sunRadius * radiusScale, 35, 35);
 const sunMat = new THREE.MeshBasicMaterial();
 sunMat.map = textureLoader.load(sunTexture);
 const sun = new THREE.Mesh(sunGeo, sunMat);
 
-const sunPointLight = new THREE.PointLight(0xffffff, 2, 1500);
+const sunPointLight = new THREE.PointLight(0xffffff, 2, 150000);
 
 const mercuryGeo = new THREE.SphereGeometry(mercuryRadius * 10 * radiusScale, 35, 35);
 const mercuryMat = new THREE.MeshStandardMaterial();
@@ -85,6 +85,4 @@ const neptune = new THREE.Mesh(neptuneGeo, neptuneMat);
 const neptuneObj = new THREE.Object3D();
 neptuneObj.add(neptune);
 
-export {
-    sun, sunPointLight, mercuryObj, mercury, venus, venusObj, earthObj, earth, marsObj, mars, jupiterObj, jupiter, saturn, saturnObj, saturnRingObj, saturnRing, uranusObj, uranus, neptuneObj, neptune
-}
+export { sun, sunPointLight, mercuryObj, mercury, venus, venusObj, earthObj, earth, marsObj, mars, jupiterObj, jupiter, saturn, saturnObj, saturnRingObj, saturnRing, uranusObj, uranus, neptuneObj, neptune };
